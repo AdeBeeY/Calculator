@@ -39,4 +39,32 @@ const subtractBtnElement = document.querySelector('.subtract-btn');
 const operateBtnElement = document.querySelector('.operate-btn');
 const addBtnElement = document.querySelector('.add-btn');
 const clearBtnElement = document.querySelector('.clear-btn');
+const displayElement = document.querySelector('.js-display');
 
+function displayEvent(button) {
+  button.addEventListener('click', () => {
+    displayElement.value += button.textContent;
+    console.log(displayElement.value)
+  });
+};
+
+clearBtnElement.addEventListener('click', () => {
+  displayElement.value = '';
+  console.log(displayElement.value);
+});
+
+displayEvent(divideBtnElement);
+displayEvent(multiplyBtnElement);
+displayEvent(subtractBtnElement);
+displayEvent(addBtnElement);
+
+displayEvent(btn0Element);
+displayEvent(btn1Element);
+displayEvent(btn2Element);
+displayEvent(btn3Element);
+displayEvent(btn4Element);
+displayEvent(btn5Element);
+displayEvent(btn6Element);
+displayEvent(btn7Element);
+displayEvent(btn8Element);
+displayEvent(btn9Element);
