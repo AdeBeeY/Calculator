@@ -42,7 +42,9 @@ function displayEvent(button) {
 
 clearBtnElement.addEventListener('click', () => {
   displayElement.value = '';
+  result = 0;
   console.log(displayElement.value);
+  console.log(result);
 });
 
 displayOperatorEvent(divideBtnElement);
@@ -72,7 +74,9 @@ let secondNumber = 0;
 let result = 0;
 
 function operate(firstNumber, operator, secondNumber) {
-  if (operator === '+') {  
+  if(operator === '/' && secondNumber === 0 || operator === undefined || secondNumber === 0) {
+    console.log("Danger!");
+  } else if (operator === '+') {  
     console.log(add(firstNumber, secondNumber));
     console.log(result = (add(firstNumber, secondNumber)));
   } else if (operator === '-') {
@@ -90,20 +94,34 @@ function operate(firstNumber, operator, secondNumber) {
 
 
 operateBtnElement.addEventListener('click', () => {
-  let currentDisplay = displayElement.value.split(" ")
-  console.log(currentDisplay);
 
-  firstNumber = Number(currentDisplay[0]);
-  operator = currentDisplay[1];
-  secondNumber = Number(currentDisplay[2]);
-  console.log(typeof secondNumber);
-  console.log(secondNumber);
+  // if(operator === '' || secondNumber === 0) {
+  //   console.log("Error!");
+  //   result = 0;
+  //   displayElement.value = '';
+  //   console.log(secondNumber)
+  // } else {
+
+    let currentDisplay = displayElement.value.split(" ")
+    console.log(currentDisplay);
+
+    firstNumber = Number(currentDisplay[0]);
+    operator = currentDisplay[1];
+    console.log(operator);
+    console.log(typeof operator);
+    secondNumber = Number(currentDisplay[2]);
+    console.log(typeof secondNumber);
+    console.log(secondNumber);
+    
+    //console.log(firstNumber)
+    // console.log(operator)
+    // console.log(secondNumber);
+
+    operate(firstNumber, operator, secondNumber);
+
+  //}
+
   
-  //console.log(firstNumber)
-  // console.log(operator)
-  // console.log(secondNumber);
-
-  operate(firstNumber, operator, secondNumber);
 });
 
 function displayOperatorEvent(button) {
