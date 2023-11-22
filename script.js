@@ -45,10 +45,15 @@ clearBtnElement.addEventListener('click', () => {
   console.log(displayElement.value);
 });
 
-displayEvent(divideBtnElement);
-displayEvent(multiplyBtnElement);
-displayEvent(subtractBtnElement);
-displayEvent(addBtnElement);
+displayOperatorEvent(divideBtnElement);
+displayOperatorEvent(multiplyBtnElement);
+displayOperatorEvent(subtractBtnElement);
+displayOperatorEvent(addBtnElement);
+
+// displayEvent(divideBtnElement);
+// displayEvent(multiplyBtnElement);
+// displayEvent(subtractBtnElement);
+// displayEvent(addBtnElement);
 
 displayEvent(btn0Element);
 displayEvent(btn1Element);
@@ -91,13 +96,39 @@ operateBtnElement.addEventListener('click', () => {
   firstNumber = Number(currentDisplay[0]);
   operator = currentDisplay[1];
   secondNumber = Number(currentDisplay[2]);
+  console.log(typeof secondNumber);
+  console.log(secondNumber);
   
   //console.log(firstNumber)
   // console.log(operator)
   // console.log(secondNumber);
 
-  operate(firstNumber, operator, secondNumber)
+  operate(firstNumber, operator, secondNumber);
 });
+
+function displayOperatorEvent(button) {
+  button.addEventListener('click', () => {
+
+    let currentDisplay = displayElement.value.split(" ")
+    console.log(currentDisplay);
+  
+    firstNumber = Number(currentDisplay[0]);
+    operator = currentDisplay[1];
+    secondNumber = Number(currentDisplay[2]);
+
+    if (secondNumber > 0) {
+      operate(firstNumber, operator, secondNumber);
+      displayElement.value += button.textContent;
+    } else {
+      displayElement.value += button.textContent;
+      console.log(displayElement.value);
+    }
+    
+  });
+};
+
+
+
 
 
 /*
@@ -107,4 +138,7 @@ a. it should select the first number and store it inside first number variable, 
 b. then it performs the operation based on all the inputs
 c. then, it saves the result inside the result variable
 d. then, it displays the result on the screen.
+
+Update the result:
+1. When two numbers have been inputted but instead of the user clicking the '=' sign, he/she clicks an operator, the calculator should operate the first two numbers and display its result alongside the operator that was clicked
 */
