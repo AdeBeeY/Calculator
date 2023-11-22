@@ -1,25 +1,17 @@
-function add(a, b) {
-  return a + b;
+function add(firstNumber, secondNumber) {
+  return firstNumber + secondNumber;
 };
 
-function subtract(a , b) {
-  return a - b;
+function subtract(firstNumber, secondNumber) {
+  return firstNumber - secondNumber;
 };
 
-function multiply(a, b) {
-  return a * b;
+function multiply(firstNumber, secondNumber) {
+  return firstNumber * secondNumber;
 };
 
-function divide(a, b) {
-  return a / b;
-};
-
-let firstNumber = 0;
-let operator = '';
-let secondNumber = 0;
-
-function operate(numb1, operator, numb2) {
-  return operator(numb1, numb2);
+function divide(firstNumber, secondNumber) {
+  return firstNumber / secondNumber;
 };
 
 const displayBtn = document.querySelector('.js-display');
@@ -68,3 +60,46 @@ displayEvent(btn6Element);
 displayEvent(btn7Element);
 displayEvent(btn8Element);
 displayEvent(btn9Element);
+
+let firstNumber = 0;
+let operator = '';
+let secondNumber = 0;
+let result = 0;
+
+function operate(firstNumber, operator, secondNumber) {
+  if (operator === '+') {  
+    console.log(add(firstNumber, secondNumber));
+  } else if (operator === '-') {
+    console.log(subtract(firstNumber, secondNumber));
+  } else if (operator === '*') {
+    console.log(multiply(firstNumber, secondNumber));
+  } else if (operator === '/') {
+    console.log(divide(firstNumber, secondNumber));
+  }
+};
+
+
+operateBtnElement.addEventListener('click', () => {
+  let currentDisplay = displayElement.value.split(" ")
+  console.log(currentDisplay);
+
+  let firstNumber = Number(currentDisplay[0]);
+  let operator = currentDisplay[1];
+  let secondNumber = Number(currentDisplay[2]);
+  
+  //console.log(firstNumber)
+  // console.log(operator)
+  // console.log(secondNumber);
+
+  operate(firstNumber, operator, secondNumber)
+});
+
+
+/*
+1. when the buttons are clicked, the items they display should appear in the display scree,
+2. when the first number is inputted, followed by an operator sign, the second number, then, when the equal to sign is clicked
+a. it should select the first number and store it inside first number variable, then store the operator sign also inside operator variable and store the second number also inside the second number variable
+b. then it performs the operation based on all the inputs
+c. then, it saves the result inside the result variable
+d. then, it displays the result on the screen.
+*/
