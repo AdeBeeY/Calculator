@@ -69,13 +69,18 @@ let result = 0;
 function operate(firstNumber, operator, secondNumber) {
   if (operator === '+') {  
     console.log(add(firstNumber, secondNumber));
+    console.log(result = (add(firstNumber, secondNumber)));
   } else if (operator === '-') {
     console.log(subtract(firstNumber, secondNumber));
+    console.log(result = (subtract(firstNumber, secondNumber)));
   } else if (operator === '*') {
     console.log(multiply(firstNumber, secondNumber));
+    console.log(result = (multiply(firstNumber, secondNumber)));
   } else if (operator === '/') {
     console.log(divide(firstNumber, secondNumber));
+    console.log(result = (divide(firstNumber, secondNumber)));
   }
+  displayElement.value = result;
 };
 
 
@@ -83,9 +88,9 @@ operateBtnElement.addEventListener('click', () => {
   let currentDisplay = displayElement.value.split(" ")
   console.log(currentDisplay);
 
-  let firstNumber = Number(currentDisplay[0]);
-  let operator = currentDisplay[1];
-  let secondNumber = Number(currentDisplay[2]);
+  firstNumber = Number(currentDisplay[0]);
+  operator = currentDisplay[1];
+  secondNumber = Number(currentDisplay[2]);
   
   //console.log(firstNumber)
   // console.log(operator)
