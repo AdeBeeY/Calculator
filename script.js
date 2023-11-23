@@ -83,7 +83,7 @@ function operate(firstNumber, operator, secondNumber) {
     result = add(firstNumber, secondNumber);
   } else if (operator === '-') {
     result = subtract(firstNumber, secondNumber);
-  } else if (operator === '*') {
+  } else if (operator === 'x') {
     result = multiply(firstNumber, secondNumber);
   } else if (operator === '/') {
     result = divide(firstNumber, secondNumber);
