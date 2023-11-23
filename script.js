@@ -33,6 +33,7 @@ const addBtnElement = document.querySelector('.add-btn');
 const clearBtnElement = document.querySelector('.clear-btn');
 const displayElement = document.querySelector('.js-display');
 const dotBtnElement = document.querySelector('.dot-btn');
+const backSpaceBtnElement = document.querySelector('.backSpace-btn');
 
 let decimalUsed = false;
 
@@ -144,23 +145,15 @@ function displayOperatorEvent(button) {
       operate(firstNumber, operator, secondNumber);
       displayElement.value += button.textContent;
     } else {
-      displayElement.value += button.textContent;
+      displayElement.value += button.textContent; 
       console.log(displayElement.value);
     }
     
   });
 };
 
-
-
-/*
-1. when the buttons are clicked, the items they display should appear in the display scree,
-2. when the first number is inputted, followed by an operator sign, the second number, then, when the equal to sign is clicked
-a. it should select the first number and store it inside first number variable, then store the operator sign also inside operator variable and store the second number also inside the second number variable
-b. then it performs the operation based on all the inputs
-c. then, it saves the result inside the result variable
-d. then, it displays the result on the screen.
-
-Update the result:
-1. When two numbers have been inputted but instead of the user clicking the '=' sign, he/she clicks an operator, the calculator should operate the first two numbers and display its result alongside the operator that was clicked
-*/
+backSpaceBtnElement.addEventListener('click', () => {
+  let removeLastItem = displayElement.value.slice(0, -1);
+  displayElement.value = removeLastItem;
+  console.log(removeLastItem);
+});
