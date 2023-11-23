@@ -46,15 +46,12 @@ function displayEvent(button) {
       decimalUsed = true;
     }
     displayElement.value += button.textContent;
-    console.log(displayElement.value)
   });
 };
 
 clearBtnElement.addEventListener('click', () => {
   displayElement.value = '';
   result = 0;
-  console.log(displayElement.value);
-  console.log(result);
 });
 
 displayOperatorEvent(divideBtnElement);
@@ -81,61 +78,32 @@ let result = 0;
 
 function operate(firstNumber, operator, secondNumber) {
   if(operator === '/' && secondNumber === 0 || operator === undefined || secondNumber === 0) {
-    console.log(result = '');
-    console.log("Error!");
+    result = " ";
   } else if (operator === '+') {  
-    console.log(add(firstNumber, secondNumber));
-    console.log(result = (add(firstNumber, secondNumber)));
+    result = add(firstNumber, secondNumber);
   } else if (operator === '-') {
-    console.log(subtract(firstNumber, secondNumber));
-    console.log(result = (subtract(firstNumber, secondNumber)));
+    result = subtract(firstNumber, secondNumber);
   } else if (operator === '*') {
-    console.log(multiply(firstNumber, secondNumber));
-    console.log(result = (multiply(firstNumber, secondNumber)));
+    result = multiply(firstNumber, secondNumber);
   } else if (operator === '/') {
-    console.log(divide(firstNumber, secondNumber));
-    console.log(result = (divide(firstNumber, secondNumber)));
+    result = divide(firstNumber, secondNumber);
   }
   displayElement.value = result;
 };
 
-
 operateBtnElement.addEventListener('click', () => {
-
-  // if(operator === '' || secondNumber === 0) {
-  //   console.log("Error!");
-  //   result = 0;
-  //   displayElement.value = '';
-  //   console.log(secondNumber)
-  // } else {
-
     let currentDisplay = displayElement.value.split(" ")
-    console.log(currentDisplay);
 
     firstNumber = Number(currentDisplay[0]);
     operator = currentDisplay[1];
-    console.log(operator);
-    console.log(typeof operator);
     secondNumber = Number(currentDisplay[2]);
-    console.log(typeof secondNumber);
-    console.log(secondNumber);
-    
-    //console.log(firstNumber)
-    // console.log(operator)
-    // console.log(secondNumber);
-
-    operate(firstNumber, operator, secondNumber);
-
-  //}
-
   
+    operate(firstNumber, operator, secondNumber);
 });
 
 function displayOperatorEvent(button) {
   button.addEventListener('click', () => {
-
     let currentDisplay = displayElement.value.split(" ")
-    console.log(currentDisplay);
   
     firstNumber = Number(currentDisplay[0]);
     operator = currentDisplay[1];
@@ -146,14 +114,11 @@ function displayOperatorEvent(button) {
       displayElement.value += button.textContent;
     } else {
       displayElement.value += button.textContent; 
-      console.log(displayElement.value);
     }
-    
   });
 };
 
 backSpaceBtnElement.addEventListener('click', () => {
   let removeLastItem = displayElement.value.slice(0, -1);
   displayElement.value = removeLastItem;
-  console.log(removeLastItem);
 });
