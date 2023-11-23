@@ -32,9 +32,18 @@ const operateBtnElement = document.querySelector('.operate-btn');
 const addBtnElement = document.querySelector('.add-btn');
 const clearBtnElement = document.querySelector('.clear-btn');
 const displayElement = document.querySelector('.js-display');
+const dotBtnElement = document.querySelector('.dot-btn');
+
+let decimalUsed = false;
 
 function displayEvent(button) {
   button.addEventListener('click', () => {
+    if (button.textContent === '.' && decimalUsed) {
+      return; 
+    }
+    if (button.textContent === '.') {
+      decimalUsed = true;
+    }
     displayElement.value += button.textContent;
     console.log(displayElement.value)
   });
@@ -52,11 +61,6 @@ displayOperatorEvent(multiplyBtnElement);
 displayOperatorEvent(subtractBtnElement);
 displayOperatorEvent(addBtnElement);
 
-// displayEvent(divideBtnElement);
-// displayEvent(multiplyBtnElement);
-// displayEvent(subtractBtnElement);
-// displayEvent(addBtnElement);
-
 displayEvent(btn0Element);
 displayEvent(btn1Element);
 displayEvent(btn2Element);
@@ -67,6 +71,7 @@ displayEvent(btn6Element);
 displayEvent(btn7Element);
 displayEvent(btn8Element);
 displayEvent(btn9Element);
+displayEvent(dotBtnElement);
 
 let firstNumber = 0;
 let operator = '';
@@ -75,7 +80,8 @@ let result = 0;
 
 function operate(firstNumber, operator, secondNumber) {
   if(operator === '/' && secondNumber === 0 || operator === undefined || secondNumber === 0) {
-    console.log("Danger!");
+    console.log(result = '');
+    console.log("Error!");
   } else if (operator === '+') {  
     console.log(add(firstNumber, secondNumber));
     console.log(result = (add(firstNumber, secondNumber)));
@@ -144,8 +150,6 @@ function displayOperatorEvent(button) {
     
   });
 };
-
-
 
 
 
